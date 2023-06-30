@@ -30,6 +30,7 @@ def train(model, dataloader_train, dataloader_valid, loss_fn, optimizer, config)
             n_train += t.size()[0]
             model.zero_grad()
 
+            x = x.permute(0, 2, 3, 1)
             x = x.to(device)
             t = t.to(device)
 
@@ -52,6 +53,7 @@ def train(model, dataloader_train, dataloader_valid, loss_fn, optimizer, config)
         model.eval()
         for x, t in tqdm(dataloader_valid, leave=False, desc="valid"):
             n_valid += t.size()[0]
+            x = x.permute(0, 2, 3, 1)
             x = x.to(device)
             t = t.to(device)
 

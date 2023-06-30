@@ -1,8 +1,14 @@
-project: wandb&hydraTest
+project: ViT
 train:
-  n_epochs: 3
+  n_epochs: 5
   device: mps
   lr: 0.0001
-  weight_path: weight/ResNet
+  weight_path: weight/ViT
+model:
+  dim_model: 128
+  depth: 6
+  n_head: 4
+  dim_mlp: 256
+
 dataset:
-  batch_size: 512
+  batch_size: 80
